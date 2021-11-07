@@ -32,7 +32,7 @@ def check_collision(pipes):
             return False
 
     if bird_rect.top <= -100 or bird_rect.bottom >= 900:
-        print("collision")
+        death_sound.play()
         return False
     return True
 
@@ -140,7 +140,6 @@ while True:
 
         if event.type == SPAWN_PIPE:
             pipe_list.extend(create_pipe())
-            print(pipe_list)
 
         if event.type == BIRD_FLAP:
             if bird_index < 2:
